@@ -1,6 +1,10 @@
 package com.pluralsight;
 
-import java.util.Locale;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Main {
@@ -32,6 +36,14 @@ public class Main {
         }
                  
     }
+    public static void addEntry(String filter) { // Add deposit or payment based on filter parameter
+        System.out.println("Enter Description:");
+        String description = scanner.nextLine();
+        System.out.println("Enter Vendor:");
+        String vendor = scanner.nextLine();
+        System.out.println("Enter Deposit Amount:");
+        double amount = scanner.nextDouble();
+        scanner.nextLine(); // clear scanner buffer
 
 
 }

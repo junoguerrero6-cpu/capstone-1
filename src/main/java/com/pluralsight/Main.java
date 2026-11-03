@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +12,26 @@ public class Main {
     }
 
     public static void homescreen() { // print the homescreen
+        boolean done = false;
+        while(!done){
+            System.out.println("""
+                    Main Menu:
+                    [D] - Add Deposit
+                    [P] - Make Payment
+                    [L] - Ledger
+                    [X] - Exit""");
 
+            String input = scanner.nextLine();
+            switch (input.toUpperCase()) {
+                case "D" -> addEntry("Deposit");
+                case "P" -> addEntry("Payment");
+                case "L" -> Ledger.ledgerMenu();
+                case "X" -> {System.out.println("Logging Off..."); done = true;}
+                default -> System.out.println("Please enter a valid option");
+            }
+        }
+                 
     }
+
 
 }

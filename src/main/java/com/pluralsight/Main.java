@@ -50,6 +50,7 @@ public class Main {
         double amount = scanner.nextDouble();
         scanner.nextLine(); // clear scanner buffer
 
-
     }
+
+
 }

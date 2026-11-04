@@ -42,11 +42,11 @@ public class Main {
     }
 
     public static void addEntry(String filter) { // Add deposit or payment based on filter parameter
-        System.out.println("Enter Description:");
+        System.out.println("Please  Enter Description:");
         String description = scanner.nextLine();
-        System.out.println("Enter Vendor:");
+        System.out.println("Please Enter Vendor:");
         String vendor = scanner.nextLine();
-        System.out.println("Enter Deposit Amount:");
+        System.out.println("Please Enter Deposit Amount:");
         double amount = scanner.nextDouble();
         scanner.nextLine(); // clear scanner buffer
 

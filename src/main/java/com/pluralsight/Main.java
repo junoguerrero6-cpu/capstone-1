@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         System.out.println("Greetings , Welcome To Your Finance Account ");
         homescreen();
@@ -17,7 +18,7 @@ public class Main {
 
     public static void homescreen() { // print the homescreen
         boolean done = false;
-        while(!done){
+        while (!done) {
             System.out.println("""
                     Main Menu:
                     [D] - Add Deposit
@@ -30,12 +31,16 @@ public class Main {
                 case "D" -> addEntry("Deposit");
                 case "P" -> addEntry("Payment");
                 case "L" -> Ledger.ledgerMenu();
-                case "X" -> {System.out.println("Logging Off..."); done = true;}
+                case "X" -> {
+                    System.out.println("Logging Off...");
+                    done = true;
+                }
                 default -> System.out.println("Please enter a valid option");
             }
         }
-                 
+
     }
+
     public static void addEntry(String filter) { // Add deposit or payment based on filter parameter
         System.out.println("Enter Description:");
         String description = scanner.nextLine();
@@ -46,4 +51,5 @@ public class Main {
         scanner.nextLine(); // clear scanner buffer
 
 
+    }
 }

@@ -13,12 +13,12 @@ public class Ledger {
         boolean done = false;
         while (!done) {
             System.out.println("""
-              Ledger Menu:
-              [A] - All Entires
-              [D] - Deposits 
-              [P] - Payments
-              [R] - Reports
-              [H] - Home """);
+                    Ledger Menu:
+                    [A] - All Entires
+                    [D] - Deposits 
+                    [P] - Payments
+                    [R] - Reports
+                    [H] - Home """);
             String input = scanner.nextLine();
             switch (input.toUpperCase()) {
                 case "A" -> System.out.println("All coming soon");
@@ -27,6 +27,12 @@ public class Ledger {
                 case "R" -> System.out.println("Reports coming soon");
                 case "H" -> done = true;
                 default -> System.out.println("Please enter a valid option");
+
+
+
+
+
             }
         }
     }
+}

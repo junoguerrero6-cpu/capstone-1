@@ -67,7 +67,6 @@ public static ArrayList<Transactions> getTransactions() {
     } catch (IOException e) {
         System.out.println("File Not Found!");
     }
-
     // Newest first: sort by date, then by time, and flip the order
     list.sort(Comparator.comparing(Transactions::getDate)
             .thenComparing(Transactions::getTime)

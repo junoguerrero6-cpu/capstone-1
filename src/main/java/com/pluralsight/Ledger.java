@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.Comparator;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -66,6 +67,11 @@ public static ArrayList<Transactions> getTransactions() {
     } catch (IOException e) {
         System.out.println("File Not Found!");
     }
+
+    // Newest first: sort by date, then by time, and flip the order
+    list.sort(Comparator.comparing(Transactions::getDate)
+            .thenComparing(Transactions::getTime)
+            .reversed());
     return list;
 
 

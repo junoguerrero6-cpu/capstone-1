@@ -67,6 +67,27 @@ public static ArrayList<Transactions> getTransactions() {
         System.out.println("File Not Found!");
     }
     return list;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

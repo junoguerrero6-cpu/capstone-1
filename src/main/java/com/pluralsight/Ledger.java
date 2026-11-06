@@ -37,10 +37,7 @@ public class Ledger {
             System.out.println("File Not Found!");
             System.exit(0);
         }
-        // Sort our transactions ArrayList in ascending order before returning it
-        Comparator<Transaction> compareByDate = Comparator.comparing(Transaction::getDate).reversed();
-        Comparator<Transaction> compareByTime = Comparator.comparing(Transaction::getTime).reversed();
-        transactions.sort(compareByDate.thenComparing(compareByTime));
+
 
         return transactions;
     }

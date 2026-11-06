@@ -8,6 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Main {
+
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -21,14 +22,14 @@ public class Main {
         while (!done) {
             System.out.println("""
                     Main Menu:
-                    [D] - Add Deposit
+                    [A] - Add Deposit
                     [P] - Make Payment
                     [L] - Ledger
                     [X] - Exit""");
 
             String input = scanner.nextLine();
             switch (input.toUpperCase()) {
-                case "D" -> addEntry("Deposit");
+                case "A" -> addEntry("Deposit");
                 case "P" -> addEntry("Payment");
                 case "L" -> Ledger.ledgerMenu();
                 case "X" -> {
@@ -48,9 +49,20 @@ public class Main {
         String vendor = scanner.nextLine();
         System.out.println("Please Enter Deposit Amount:");
         double amount = scanner.nextDouble();
-        scanner.nextLine(); // clear scanner buffer
+        scanner.nextLine();// clear scanner buffer
 
+        String amountSign = ""; // blank by default
+        if (filter.equals("Payment")) { // if filter is "Payment", make the amount negative
+            amountSign = "-";
+        }
+        // write the variables' info to the csv file with appropriate format and use current date/time
+        try (FileWriter fileWriter = new FileWriter("transactions.csv", true)) {
+            fileWriter.write(String.format("\n%s|%s|%s|%s|%s%.2f",
+                    LocalDate.now(), LocalTime.now().truncatedTo(ChronoUnit.SECONDS), description, vendor, amountSign, amount));
+            fileWriter.close();
+            System.out.println(filter + " added successfully!");
+        } catch (IOException e) { // throw error message when input is erroneous
+            System.out.println("Error inputting data!");
+        }
     }
-
-
 }

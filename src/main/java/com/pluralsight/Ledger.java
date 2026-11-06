@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 
-
 import java.util.Scanner;
 
 
@@ -22,17 +21,17 @@ public class Ledger {
             String input = scanner.nextLine();
             switch (input.toUpperCase()) {
                 case "A" -> System.out.println("All coming soon");
-                case "B" -> System.out.println("Deposits coming soon");
+                case "D" -> System.out.println("Deposits coming soon");
                 case "P" -> System.out.println("Payments coming soon");
                 case "R" -> System.out.println("Reports coming soon");
                 case "H" -> done = true;
                 default -> System.out.println("Please enter a valid option");
 
 
-
-
-
             }
         }
     }
 }
+
+
+

@@ -33,36 +33,7 @@ public class Ledger {
                 default -> System.out.println("Please enter a valid option");
 
             }
-            // Global list that every method will loop through
-            public static ArrayList<Transactions> transactions = new ArrayList<>();
 
-            // Reads transactions.csv and returns a list of Transactions objects
-            public static ArrayList<Transactions> getTransactions() {
-                ArrayList<Transactions> list = new ArrayList<>();
-
-                try (BufferedReader bufReader = new BufferedReader(new FileReader("transactions.csv"))) {
-                    String input;
-                    while ((input = bufReader.readLine()) != null) { // for every line until there are no more lines
-                        if (input.isBlank() || input.startsWith("date")) {
-                            continue; // skip empty lines and the header row
-                        }
-                        try {
-                            String[] details = input.split("\\|"); // cut the line into its 5 pieces
-                            LocalDate date = LocalDate.parse(details[0]);
-                            LocalTime time = LocalTime.parse(details[1]);
-                            String description = details[2];
-                            String vendor = details[3];
-                            double amount = Double.parseDouble(details[4]);
-
-                            list.add(new Transactions(date, time, description, vendor, amount));
-                        } catch (Exception e) {
-                            System.out.println("Skipping a bad line in the file: " + input);
-                        }
-                    }
-                } catch (IOException e) {
-                    System.out.println("File Not Found!");
-                }
-                return list;
             }
 
         }
